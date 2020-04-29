@@ -1,0 +1,7 @@
+com\shy\mapper\BookmarkMapper.class
+com\shy\mapper\CategoryMapper.class
+com\shy\service\BookMarkService.class
+com\shy\controller\BookMarkController.class
+com\shy\Bookmark0429Application.class
+com\shy\pojo\Category.class
+com\shy\pojo\Bookmark.class

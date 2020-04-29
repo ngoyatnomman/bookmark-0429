@@ -1,0 +1,104 @@
+*{padding:0;margin:0}
+body{
+    background-image: url("../img/bg.jpg");
+}
+.row{
+    width:1600px;
+    height:830px;
+    margin:10px 0 0 160px;
+    display: inline-block;
+}
+.row ul{
+    width:1600px;
+}
+.row ul li{
+    width:800px;
+    float:left;
+    display:block;
+    vertical-align: middle;
+    height:35px;
+    line-height: 30px;
+}
+.row ul li:hover{
+    background-color:rgba(66, 66, 66, 0.26);
+}
+.row ul li select{
+    float: right;
+    height:30px;
+    margin-top:2px;
+    margin-right: 10px;
+    display:none;
+}
+.row ul li input{
+    float: right;
+    width:60px;
+    height:30px;
+    outline:transparent;
+    border: transparent;
+    background-color: #00b271;
+    border-radius:15px;
+    margin-top:2px;
+    cursor:pointer;
+    display: none;
+}
+.row ul li a img{
+    width:30px;
+    height:30px;
+    border-radius: 50%;
+    display: inline-block;
+    vertical-align: middle;
+}
+.row ul li a:nth-of-type(2){
+    color:darkred;
+    text-decoration: none;
+    vertical-align: middle;
+    width:600px;/*要显示文字的宽度*/
+    overflow:hidden; /*超出的部分隐藏起来。*/
+    white-space:nowrap;/*不显示的地方用省略号...代替*/
+    text-overflow:ellipsis;/* 支持 IE */
+    display: inline-block;
+}
+.row ul li a:nth-of-type(2):hover{
+    color:green;
+}
+.btn{
+    color:#fff;
+    width:100px;
+    height:30px;
+    text-align: center;
+    text-decoration: none;
+    display:inline-block;;
+    padding-top:10px;
+}
+.categoryPage{
+    text-align: center;
+    height:55px;
+    background-color: black;
+    filter: alpha(opacity=80);
+    -moz-opacity: 0.5;
+    opacity: 0.5;
+}
+.categoryPage ul li{
+    display: inline-block;
+    color:white;
+}
+.categoryPage ul li a:hover{
+    background-color: green;
+}
+.conditions{
+    text-align: center;
+    background-color: black;
+    filter: alpha(opacity=80);
+    -moz-opacity: 0.5;
+    opacity: 0.5;
+    color:white;
+}
+.conditions select{
+    width:300px;
+    height:35px;
+    margin:-1px 100px 0 0px;
+    font-size:15px;
+}
+.conditions a:hover{
+    background-color: green;
+}
