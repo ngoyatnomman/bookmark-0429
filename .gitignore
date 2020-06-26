@@ -4,7 +4,7 @@ target/
 !**/src/test/**
 
 ### 图片路径 ###
-**/src/main/resources/icons/**
+**/src/main/resources/static/icons/**
 
 ### STS ###
 .apt_generated
