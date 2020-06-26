@@ -33,7 +33,7 @@ function nextPage(){
 function deleteBookMark(now) {
     var flag = confirm('确认删除？');
     if(flag){
-        $.get('/BookMark/deleteById.do','id='+$(now).attr('data-id'),function () {
+        $.post('/BookMark/deleteById.do','id='+$(now).attr('data-id'),function () {
             loadData();
         })
     }
@@ -42,7 +42,7 @@ function deleteBookMark(now) {
 function changeCategory(now) {
     var id = $(now).prev('input').attr('data-id');
     var categoryId = $(now).val();
-    $.get('/BookMark/changeCategoryById.do',{id:id,categoryId:categoryId},function () {
+    $.post('/BookMark/changeCategoryById.do',{id:id,categoryId:categoryId},function () {
 
     })
 }
@@ -54,9 +54,10 @@ function selectByCategory(now) {
 }
 
 function loadData(){
-    $.get('/BookMark/getAllBookMarks.do',{pageNum:pageNum,categoryId: categoryId},function (data) {
-        $('.row ul').empty();
-        var str = '';
+    $.post('/BookMark/getAllBookMarks.do',{pageNum:pageNum,categoryId: categoryId},function (data) {
+        let $ul = $('.row ul');
+        $ul.empty();
+        let str = '';
         $(data.list).each(function (i, item) {
             str += `<li>
                                 <a href="${item.url}" target="_blank" title="${item.name}"><img src="icons/${item.icon}" alt=""></a>
@@ -67,14 +68,15 @@ function loadData(){
                                  </select>
                             </li>`
         });
-        $('.row ul').append(str);
+        $ul.append(str);
         $.get('/BookMark/getAllCategories.do',function (data) {
-            var str = '';
+            let str = '';
             $(data).each(function (i,item) {
                 str += `<option value="${item.id}">${item.category}</option>`
             });
-            $('.row ul li select').append(str);
-            $('.row ul li select').each(function (i,item) {
+            let $select = $('.row ul li select');
+            $select.append(str);
+            $select.each(function (i,item) {
                 $(item).val($(item).attr('data-id'));
             })
         });
@@ -91,18 +93,18 @@ $(function () {
     loadData(1);
 
     $.get('/BookMark/getAllCategories.do',function (data) {
-        var str = '';
+        let str = '';
         $(data).each(function (i,item) {
             str += `<option value="${item.id}">${item.category}</option>`
         });
         $('.conditions select').append(str);
-    })
+    });
 
     $('.row ul').on('mouseover mouseout', 'li',function (e) {
-        if(e.type=="mouseover"){
+        if(e.type==="mouseover"){
             $(this).find('input').toggle();
             $(this).find('select').toggle();
-        }else if(e.type=="mouseout"){
+        }else if(e.type==="mouseout"){
             $(this).find('input').toggle();
             $(this).find('select').toggle();
         }

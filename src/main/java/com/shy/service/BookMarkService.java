@@ -14,17 +14,18 @@ import java.util.List;
 
 @Service
 public class BookMarkService {
-    @Autowired
     private BookmarkMapper bookmarkMapper;
-    @Autowired
     private CategoryMapper categoryMapper;
 
+    public BookMarkService(BookmarkMapper bookmarkMapper, CategoryMapper categoryMapper) {
+        this.bookmarkMapper = bookmarkMapper;
+        this.categoryMapper = categoryMapper;
+    }
 
-    public PageInfo getAllBookMarks(int pageNum,int categoryId) {
+    public PageInfo<Bookmark> getAllBookMarks(int pageNum, int categoryId) {
         PageHelper.startPage(pageNum,46);
         List<Bookmark> bookMarks = bookmarkMapper.getAllBookMarks(categoryId);
-        PageInfo pageInfo = new PageInfo(bookMarks);
-        return pageInfo;
+        return new PageInfo<>(bookMarks);
     }
 
     public List<Category> getAllCategories() {
